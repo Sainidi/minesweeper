@@ -1,0 +1,91 @@
+.App {
+  text-align: center;
+}
+
+.header,
+.board-sizes,
+.board,
+.board-row,
+.mines-count,
+.MuiModal-root,
+.modal-content-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.header,
+.board,
+.modal-content-container {
+  flex-direction: column;
+}
+
+.header h1 {
+  margin-bottom: 0;
+}
+
+.board {
+  margin: 20px 0 20px;
+}
+
+.board-sizes {
+  gap: 15px;
+}
+
+button {
+  color: #2C3949 !important;
+}
+
+.board-row button {
+  background-color: #3ABD9E;
+  min-width: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 26px;
+}
+
+.board-row button:hover {
+  background-color: rgba(58, 189, 158, .6);
+}
+
+.board-row button.empty {
+  background-color: #CEEFE7;
+}
+
+.board-row button.open {
+  background-color: #EEC9C9;
+}
+
+.board-row button.hole {
+  background-color: #C64C4C;
+}
+
+.board-row button.flagged-hole {
+  background-color: #2A9C81;
+}
+
+.board-row button.flagged-open {
+  background-color: #A33A3A;
+}
+
+.mines-count {
+  margin-top: 20px;
+}
+
+.mines-count > span {
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #BCCDDF;
+}
+
+.mines-count > button {
+  text-transform: none;
+}
+
+.modal-content-container {
+  background-color: #FCFDFE;
+  padding: 20px;
+  gap: 20px;
+  clip-path: polygon(15px 0, 100% 0,100% calc(100% - 15px), calc(100% - 15px) 100%,0 100%,0 15px);
+}
