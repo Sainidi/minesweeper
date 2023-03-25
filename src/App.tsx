@@ -3,6 +3,7 @@ import './App.css';
 import { TextField } from "@mui/material";
 import { Game } from "./types/common";
 import Board from "./components/Board";
+import { checkInputValue } from "./utils/common";
 
 function App() {
   const [game, setGame] = useState<Game>({
@@ -33,10 +34,6 @@ function App() {
       <Board game={game} />
     </div>
   );
-}
-
-function checkInputValue(value: string, min = 5, max = 19) {
-  return Math.max(min, Math.min(Number(value), max))
 }
 
 export default App;

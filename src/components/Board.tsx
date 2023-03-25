@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Game, GameStatuses } from "../types/common";
+import { BoardProps, GameStatuses } from "../types/common";
 import { Cell } from "./Cell";
 import { Button, Modal } from "@mui/material";
-
-type BoardProps = {
-  game: Game
-}
+import { getClass, getHolesCount, getValue, isEmptyCell } from "../utils/common";
 
 const Board = ({game}: BoardProps) => {
   const [board, setBoard] = useState<Cell[][]>([]);
@@ -228,51 +225,5 @@ const Board = ({game}: BoardProps) => {
     </>
   );
 };
-
-function isEmptyCell(cell: Cell) {
-  return !cell.isHole && cell.n === 0
-}
-
-function getClass(cell: Cell) {
-  let className = ''
-
-  if (cell.isOpen) {
-    if (cell.isHole) {
-      if (cell.isFlagged) {
-        className = 'flagged-hole'
-      } else className = 'hole'
-    } else if (cell.isFlagged) {
-      className = 'flagged-open'
-    } else if (cell.n > 0) {
-      className = 'open'
-    } else className = 'empty'
-  } else if (cell.isFlagged) className = 'flagged'
-
-  return className
-}
-
-function getValue(cell: Cell) {
-  let value: any = ''
-
-  if (cell.isOpen) {
-    if (cell.isHole) {
-      value = <>&#128163;</>
-    } else {
-      if (cell.n > 0) {
-        value = cell.n
-      }
-    }
-  } else if (cell.isFlagged) value = <>&#9760;</>
-
-  return value
-}
-
-function getHolesCount(holes: boolean[][]) {
-  let count = 0
-
-  holes.map(row => row.map(cell => cell && (count += 1)))
-
-  return count
-}
 
 export default Board;

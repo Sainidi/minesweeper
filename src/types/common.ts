@@ -7,3 +7,7 @@ export enum GameStatuses {
   lose = 'lose',
   won = 'won'
 }
+
+export type BoardProps = {
+  game: Game
+}
